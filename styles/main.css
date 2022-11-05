@@ -5,67 +5,76 @@ html {
 .top-bar {
     position: fixed;
     z-index: 1000;
-
     width: 100%;
     height: 80px;
     padding: 0 30px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
-
     background-color: transparent;
-
     font-family: 'Spectral', serif;
     font-size: 18px;
-
-    transition: background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: background-color 0.5s;
 }
 
 .top-bar.is-scrolled {
-    background-color: #333;
+    background-color: #222;
 }
 
 .top-bar .title {
     flex-grow: 0;
-
     font-size: 32px;
 }
 
 .top-bar .sections {
     flex-grow: 1;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
 .top-bar .sections a {
-    margin: 0 20px;
+    margin: 0 10px;
+    padding: 0 10px;
     display: block;
     position: relative;
+    line-height: 50px;
 }
 
 .top-bar .sections a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.05em;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 2px;
     background-color: white;
     opacity: 0;
-    transition: opacity 300ms, transform 300ms;
+    transition: opacity 0.5s, transform 0.5s;
   }
 
 .top-bar .sections a:hover::after,
 .top-bar .sections a:focus::after {
     opacity: 1;
-    transform: translate3d(0, 0.2em, 0);
+    transform: translate3d(0, 3px, 0);
   }
 
 .top-bar .actions {
     flex-grow: 0;
+}
+
+.top-bar .actions .button {
+    color: black;
+    background-color: white;
+    padding: 12px 20px;
+    transition: color 0.25s, background-color 0.5s, box-shadow 0.5s;
+}
+
+.top-bar .actions .button:hover,
+.top-bar .actions .button:focus {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 0 2px white;
 }
 
 .top-bar a {
