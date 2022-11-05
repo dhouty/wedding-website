@@ -1,0 +1,95 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.top-bar {
+    position: fixed;
+    z-index: 1000;
+
+    width: 100%;
+    height: 80px;
+    padding: 0 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: transparent;
+
+    font-family: 'Spectral', serif;
+    font-size: 18px;
+
+    transition: background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.top-bar.is-scrolled {
+    background-color: #333;
+}
+
+.top-bar .title {
+    flex-grow: 0;
+
+    font-size: 32px;
+}
+
+.top-bar .sections {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.top-bar .sections a {
+    margin: 0 20px;
+    display: block;
+    position: relative;
+}
+
+.top-bar .sections a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.05em;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
+
+.top-bar .sections a:hover::after,
+.top-bar .sections a:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+  }
+
+.top-bar .actions {
+    flex-grow: 0;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: none;
+}
+
+img.main {
+    width: 100%;
+}
+
+.section {
+    margin-bottom: 80px;
+    scroll-margin-top: 120px;
+}
+
+.section h1 {
+    text-align: center;
+    font-family: 'Satisfy', cursive;
+    font-weight: 54px;
+    margin-bottom: 30px;
+}
+
+.section p {
+    margin: 20px 0;
+    padding: 0 180px;
+}
