@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: 'Spectral', serif;
+}
+
 .top-bar {
     position: fixed;
     z-index: 1000;
@@ -12,7 +16,6 @@ html {
     flex-direction: row;
     align-items: center;
     background-color: transparent;
-    font-family: 'Spectral', serif;
     font-size: 18px;
     transition: background-color 0.5s;
 }
@@ -64,7 +67,7 @@ html {
 }
 
 .top-bar .actions .button {
-    color: black;
+    color: #222;
     background-color: white;
     padding: 12px 20px;
     transition: color 0.25s, background-color 0.5s, box-shadow 0.5s;
@@ -82,23 +85,44 @@ html {
     text-decoration: none;
 }
 
-img.main {
-    width: 100%;
+#main {
+    min-height: 800px;
+    height: 100vh;
+    background-image: url('../images/main-cropped.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .section {
-    margin-bottom: 80px;
-    scroll-margin-top: 120px;
+    scroll-margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+.section:nth-child(even) {
+    background-color: #f5c9d047;
 }
 
 .section h1 {
     text-align: center;
     font-family: 'Satisfy', cursive;
-    font-weight: 54px;
-    margin-bottom: 30px;
+    font-size: 36px;
+    padding: 60px 0;
+}
+
+.section h2 {
+    text-align: center;
 }
 
 .section p {
-    margin: 20px 0;
+    margin-bottom: 20px;
     padding: 0 180px;
+}
+
+hr {
+    height: 30px;
+    margin: 60px 0;
+    background-image: url('../images/divider.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
 }
