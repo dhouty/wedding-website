@@ -126,3 +126,42 @@ hr {
     background-repeat: no-repeat;
     border: 0;
 }
+
+.person-group {
+    display: flex;
+    justify-content: center;
+}
+
+.person {
+    padding: 0 30px;
+    text-align: center;
+    width: 25%;
+}
+
+.person img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    aspect-ratio : 1/1;
+}
+
+.person .name {
+    font-size: 28px;
+    font-family: 'Satisfy', cursive;
+    margin-bottom: 6px;
+}
+
+.person .role {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.person .bio {
+    font-size: 16px;
+}
+
+.person .character {
+    font-size: 16px;
+    margin-top: 16px;
+    font-style: italic;
+}
