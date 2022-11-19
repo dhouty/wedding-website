@@ -21,7 +21,7 @@ body {
 }
 
 .top-bar.is-scrolled {
-    background-color: #222;
+    background-color: #152144;
 }
 
 .top-bar .title {
@@ -67,7 +67,7 @@ body {
 }
 
 .top-bar .actions .button {
-    color: #222;
+    color: #152144;
     background-color: white;
     padding: 12px 20px;
     transition: color 0.25s, background-color 0.5s, box-shadow 0.5s;
@@ -107,7 +107,7 @@ body {
     font-family: 'Satisfy', cursive;
     font-size: 48px;
     margin-bottom: 80px;
-    color: #092570;
+    color: #152144;
 }
 
 .section h2 {
@@ -124,7 +124,7 @@ body {
 .countdown {
     display: flex;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .countdown .segment {
