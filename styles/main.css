@@ -1,9 +1,15 @@
+:root {
+    --navy: #152144;
+    --pink:  #ffeef2;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Spectral', serif;
+    color: var(--navy);
 }
 
 .top-bar {
@@ -21,7 +27,7 @@ body {
 }
 
 .top-bar.is-scrolled {
-    background-color: #152144;
+    background-color: var(--navy);
 }
 
 .top-bar .title {
@@ -67,7 +73,7 @@ body {
 }
 
 .top-bar .actions .button {
-    color: #152144;
+    color: var(--navy);
     background-color: white;
     padding: 12px 20px;
     transition: color 0.25s, background-color 0.5s, box-shadow 0.5s;
@@ -99,7 +105,7 @@ body {
 }
 
 .section:nth-child(even) {
-    background-color: #ffeef2;
+    background-color: var(--pink);
 }
 
 .section h1 {
@@ -107,12 +113,10 @@ body {
     font-family: 'Satisfy', cursive;
     font-size: 48px;
     margin-bottom: 80px;
-    color: #152144;
 }
 
 .section h2 {
     text-align: center;
-    margin-bottom: 20px;
     font-size: 32px;
 }
 
@@ -121,14 +125,26 @@ body {
     padding: 0 180px;
 }
 
+#the-wedding {
+    text-align: center;
+}
+
+.countdown-container {
+    background-color: var(--pink);
+    padding: 40px;
+    width: 92vw;
+    max-width: 600px;
+    margin: 0 auto 80px;
+}
+
 .countdown {
     display: flex;
     justify-content: center;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .countdown .segment {
-    width: 150px;
+    flex: 1;
     text-align: center;
 }
 
@@ -144,17 +160,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 40px;
-}
-
-.itinerary img {
-    height: 400px;
+    margin: 0 2vw;
 }
 
 .itinerary .event {
     flex: 1;
     text-align: center;
-    margin-left: 20px;
+    margin: 0 2vw;
+}
+
+.itinerary .event img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
 }
 
 .itinerary .event .name {
