@@ -1,7 +1,9 @@
 :root {
     --navy: #152144;
-    --pink:  #ffeef2;
+    --pink: #ffeef2;
     --white: white;
+    --sage: #a5b4a8;
+    --sage-light: rgb(165, 180, 168, 0.2);
 }
 
 html {
@@ -70,13 +72,13 @@ body {
     background-color: var(--white);
     opacity: 0;
     transition: opacity 0.5s, transform 0.5s;
-  }
+}
 
 .top-bar .sections a:hover::after,
 .top-bar .sections a:focus::after {
     opacity: 1;
     transform: translate3d(0, 3px, 0);
-  }
+}
 
 .top-bar .actions {
     flex-grow: 0;
@@ -190,6 +192,108 @@ body {
     font-weight: 700;
 }
 
+.timeline {
+    position: relative;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #c5c5c5;
+}
+
+.timeline ul {
+    padding: 0;
+    margin: 0;
+}
+
+.timeline ul li {
+    list-style: none;
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+.timeline ul li:nth-child(odd) {
+    float: left;
+    text-align: right;
+    clear: both;
+}
+
+.timeline ul li:nth-child(even) {
+    float: right;
+    text-align: left;
+    clear: both;
+}
+
+.content {
+    padding-bottom: 20px;
+}
+
+.timeline ul li:nth-child(odd):before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 24px;
+    right: -6px;
+    background: var(--sage);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--sage-light);
+}
+
+.timeline ul li:nth-child(even):before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 24px;
+    left: -4px;
+    background: var(--sage);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--sage-light);
+}
+
+.timeline ul li .time {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.timeline ul li img {
+    margin-top: 8px;
+
+}
+
+.timeline ul li:nth-child(odd) .time {
+    position: absolute;
+    top: 12px;
+    right: -30px;
+    transform: translateX(100%);
+    margin: 0;
+    padding: 8px 16px;
+    background: var(--sage);
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 0 0 3px var(--sage-light);
+}
+
+.timeline ul li:nth-child(even) .time {
+    position: absolute;
+    top: 12px;
+    left: -30px;
+    transform: translateX(-100%);
+    margin: 0;
+    padding: 8px 16px;
+    background: var(--sage);
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 0 0 3px var(--sage-light);
+}
+
 .person-group {
     display: flex;
     justify-content: center;
@@ -283,40 +387,40 @@ body {
         display: none;
     }
 
-    .top-bar .side-menu:checked ~ .hamburger .hamburger-line {
+    .top-bar .side-menu:checked~.hamburger .hamburger-line {
         background: transparent;
     }
 
-    .top-bar .side-menu:checked ~ .hamburger .hamburger-line::before {
+    .top-bar .side-menu:checked~.hamburger .hamburger-line::before {
         transform: rotate(-45deg);
         top: 0;
     }
 
-    .top-bar .side-menu:checked ~ .hamburger .hamburger-line::after {
+    .top-bar .side-menu:checked~.hamburger .hamburger-line::after {
         transform: rotate(45deg);
         top: 0;
     }
 
-    .top-bar .side-menu:checked ~ .sections {
+    .top-bar .side-menu:checked~.sections {
         display: flex;
         flex-direction: column;
         flex-basis: 100%;
     }
 
-    .top-bar .side-menu:checked ~ .sections a {
+    .top-bar .side-menu:checked~.sections a {
         width: fit-content;
         margin: 0;
         left: -10px;
     }
 
-    .top-bar .side-menu:checked ~ .actions {
+    .top-bar .side-menu:checked~.actions {
         display: flex;
         flex-direction: column;
         flex-basis: 100%;
         margin: 30px 0;
     }
 
-    .top-bar .side-menu:checked ~ .actions .button {
+    .top-bar .side-menu:checked~.actions .button {
         width: fit-content;
     }
 
@@ -358,6 +462,39 @@ body {
 
     .itinerary .event:last-child {
         margin-bottom: 0;
+    }
+
+    .timeline {
+        padding-bottom: 0;
+    }
+
+    .timeline:before {
+        left: 20px;
+    }
+
+    .timeline ul li:nth-child(odd),
+    .timeline ul li:nth-child(even) {
+        width: 100%;
+        text-align: left;
+        padding-left: 50px;
+        padding-bottom: 30px;
+    }
+
+    .timeline ul li:nth-child(odd):before,
+    .timeline ul li:nth-child(even):before {
+        left: 16px;
+    }
+
+    .timeline ul li:nth-child(odd) .time,
+    .timeline ul li:nth-child(even) .time {
+        left: 50px;
+        right: inherit;
+        transform: none;
+    }
+
+    .timeline .content {
+        margin-top: 48px;
+        padding-bottom: 0;
     }
 
     .person-group {
