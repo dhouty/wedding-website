@@ -128,7 +128,7 @@ body {
 
 .section h2 {
     text-align: center;
-    font-size: 32px;
+    font-size: clamp(1rem, 0.5000rem + 2.6667vw, 2rem);
 }
 
 .section p {
@@ -232,8 +232,12 @@ body {
 .faq {
     padding: 0 120px;
     margin-bottom: 40px;
-    font-size: 20px;
+    font-size: clamp(1rem, 0.8750rem + 0.6667vw, 1.25rem);
     text-align: center;
+}
+
+.faq:last-child {
+    margin-bottom: 0;
 }
 
 .faq .question {
@@ -342,12 +346,17 @@ body {
     }
 
     .itinerary .event {
-        max-width: 500px;
+        max-width: 600px;
         margin-bottom: 8vw;
         font-size: clamp(1rem, 0.8750rem + 0.6667vw, 1.25rem);
     }
 
     .itinerary .event:last-child {
         margin-bottom: 0;
+    }
+
+    .faq {
+        padding: 0 4vw;
+        margin-bottom: 8vw;
     }
 }
