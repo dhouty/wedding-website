@@ -121,7 +121,8 @@ body {
 .section h1 {
     text-align: center;
     font-family: 'Satisfy', cursive;
-    font-size: 48px;
+    font-size: clamp(2rem, 1.0000rem + 5.3333vw, 4rem);
+    padding: 0 4vw;
     margin-bottom: 80px;
 }
 
@@ -145,11 +146,13 @@ body {
     width: 92vw;
     max-width: 600px;
     margin: 0 auto 80px;
+    font-size: clamp(0.75rem, 0.5000rem + 1.3333vw, 1.25rem);
 }
 
 .countdown {
     display: flex;
     justify-content: center;
+    font-weight: 700;
     margin-bottom: 40px;
 }
 
@@ -159,11 +162,7 @@ body {
 }
 
 .countdown .segment .value {
-    font-size: 50px;
-}
-
-.countdown .segment .label {
-    font-size: 20px;
+    font-size: clamp(1.5rem, 0.7500rem + 4.0000vw, 3rem);
 }
 
 .itinerary {
@@ -177,22 +176,18 @@ body {
     flex: 1;
     text-align: center;
     margin: 0 2vw;
+    font-size: clamp(1rem, 0.2500rem + 1.3333vw, 1.25rem);
 }
 
 .itinerary .event img {
     width: 100%;
     object-fit: cover;
     aspect-ratio: 16/9;
-    margin-top: 16px;
+    margin-top: 8px;
 }
 
 .itinerary .event .name {
-    font-size: 20px;
     font-weight: 700;
-}
-
-.itinerary .event .location {
-    font-size: 20px;
 }
 
 .person-group {
@@ -323,5 +318,36 @@ body {
 
     .top-bar .side-menu:checked ~ .actions .button {
         width: fit-content;
+    }
+
+    .section {
+        padding: 8vw 0;
+    }
+
+    .section h1 {
+        margin-bottom: 8vw;
+    }
+
+    .countdown-container {
+        padding: 8vw;
+        margin: 0 auto 8vw;
+    }
+
+    .countdown {
+        margin-bottom: 8vw;
+    }
+
+    .itinerary {
+        flex-direction: column;
+    }
+
+    .itinerary .event {
+        max-width: 500px;
+        margin-bottom: 8vw;
+        font-size: clamp(1rem, 0.8750rem + 0.6667vw, 1.25rem);
+    }
+
+    .itinerary .event:last-child {
+        margin-bottom: 0;
     }
 }
