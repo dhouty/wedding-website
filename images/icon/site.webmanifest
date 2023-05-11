@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Becky & Daniel's Fairytale Wedding",
+    "short_name": "B&D Wedding",
     "icons": [
         {
             "src": "/android-chrome-96x96.png",
@@ -8,7 +8,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#152144",
+    "background_color": "#152144",
     "display": "standalone"
 }
