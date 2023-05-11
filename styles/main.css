@@ -15,6 +15,12 @@ body {
     color: var(--navy);
 }
 
+.aspect-image {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
 .top-bar {
     position: fixed;
     z-index: 1000;
@@ -121,8 +127,9 @@ body {
 
 .section h1 {
     text-align: center;
-    font-family: 'Satisfy', cursive;
+    font-family: 'Sacramento', cursive;
     font-size: clamp(2rem, 1.0000rem + 5.3333vw, 4rem);
+    font-weight: 400;
     padding: 0 4vw;
     margin-bottom: 80px;
 }
@@ -130,11 +137,20 @@ body {
 .section h2 {
     text-align: center;
     font-size: clamp(1rem, 0.5000rem + 2.6667vw, 2rem);
+    padding: 0 4vw;
+    margin-bottom: 20px;
+}
+
+.section h3 {
+    text-align: center;
+    font-size: clamp(0.5rem, 0.5000rem + 2.6667vw, 1rem);
+    padding: 0 4vw;
+    margin-bottom: 20px;
 }
 
 .section p {
     margin-bottom: 20px;
-    padding: 0 180px;
+    padding: 0 8vw;
     font-size: clamp(1rem, 0.8750rem + 0.6667vw, 1.25rem);
 }
 
@@ -345,7 +361,7 @@ body {
 }
 
 .person .name {
-    font-family: 'Satisfy', cursive;
+    font-family: 'Sacramento', cursive;
     font-size: clamp(1.5rem, 1.2500rem + 1.3333vw, 2rem);
 }
 
@@ -357,6 +373,43 @@ body {
 .person .character {
     margin-top: 16px;
     font-style: italic;
+}
+
+#travel .row {
+    max-width: 1200px;
+    padding: 0 2vw;
+    margin: 0 auto 20px;
+}
+
+.hotel-accommodations {
+    display: flex;
+}
+
+.hotel-accommodations .location, .hotel-accommodations .information {
+    flex: 1;
+    padding: 0 2vw;
+}
+
+.hotel-accommodations .location .address {
+    margin-top: 20px;
+}
+
+.hotel-accommodations .information {
+    font-size: 20px;
+}
+
+.other-hotel-recommendations {
+    display: flex;
+}
+
+.other-hotel-recommendations .location {
+    flex: 1;
+}
+
+.other-hotel-recommendations .location img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
 }
 
 .faq {
