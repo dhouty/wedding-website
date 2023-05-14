@@ -1,9 +1,40 @@
 :root {
-    --navy: #152144;
-    --pink: #ffeef2;
-    --white: white;
-    --sage: #a5b4a8;
-    --sage-light: rgb(165, 180, 168, 0.2);
+    /* colors */
+    --color-navy: #152144;
+    --color-pink: #ffeef2;
+    --color-white: #ffffff;
+    --color-white-transulcent: #ffffff33;
+    --color-sage: #a5b4a8;
+    --color-sage-light: #d2d9d3;
+
+    /* font families */
+    --font-family-serif: 'Spectral', 'serif';
+    --font-family-cursive: 'Sacramento', 'cursive';
+
+    /* font sizes */
+    --font-size-heading-large: clamp(4rem, 3.5rem + 2.5vw, 5rem);
+    --font-size-heading-medium: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
+    --font-size-heading-small: clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem);
+
+    --font-size-content: clamp(1rem, 0.875rem + 0.625vw, 1.25rem);
+    --font-size-sub-content: clamp(0.75rem, 0.625rem + 0.625vw, 1rem);
+
+    /* font weights */
+    --font-weight-bold: 700;
+    --font-weight-normal: 400;
+
+    /* dimensions */
+    --dimension-nav-height: 80px;
+    --dimension-content-width: 1200px;
+
+    /* spacings */
+    --spacing-large: var(--dimension-nav-height);
+    --spacing-medium: 40px;
+    --spacing-small: 20px;
+    --spacing-tiny: 10px;
+
+    --spacing-row: var(--spacing-medium);
+    --spacing-row-item: var(--spacing-tiny);
 }
 
 html {
@@ -11,21 +42,78 @@ html {
 }
 
 body {
-    font-family: 'Spectral', serif;
-    color: var(--navy);
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-content);
+    color: var(--color-navy);
+    background-color: var(--color-navy);
 }
 
-.aspect-image {
+img {
     width: 100%;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    transition: color 0.25s, background-color 0.5s, box-shadow 0.5s;
+    text-decoration: none;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: var(--dimension-content-width);
+    margin: 0 auto var(--spacing-row);
+}
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+.row-item {
+    flex: 1;
+    margin: 0 var(--spacing-row-item);
+}
+
+.row-item.quarter-width {
+    flex-basis: 25%;
+    flex-grow: 0;
+}
+
+.row-item.half-width {
+    flex-basis: 50%;
+    flex-grow: 0;
+}
+
+.row-item.three-quarter-width {
+    flex-basis: 75%;
+    flex-grow: 0;
+}
+
+.row-item:first-child {
+    margin-left: 0;
+}
+
+.row-item:last-child {
+    margin-right: 0;
+}
+
+.aspect-image-horizontal {
     object-fit: cover;
     aspect-ratio: 16/9;
+}
+
+.aspect-image-vertical {
+    object-fit: cover;
+    aspect-ratio: 3/4;
 }
 
 .top-bar {
     position: fixed;
     z-index: 1000;
     width: 100%;
-    height: 80px;
+    height: var(--dimension-nav-height);
     padding: 0 30px;
     display: flex;
     flex-direction: row;
@@ -38,7 +126,7 @@ body {
 }
 
 .top-bar.is-scrolled {
-    background-color: var(--navy);
+    background-color: var(--color-navy);
 }
 
 .top-bar .title {
@@ -75,7 +163,7 @@ body {
     left: 10px;
     right: 10px;
     height: 2px;
-    background-color: var(--white);
+    background-color: var(--color-white);
     opacity: 0;
     transition: opacity 0.5s, transform 0.5s;
 }
@@ -91,21 +179,19 @@ body {
 }
 
 .top-bar .actions .button {
-    color: var(--navy);
-    background-color: var(--white);
-    padding: 12px 20px;
-    transition: color 0.25s, background-color 0.5s, box-shadow 0.5s;
+    color: var(--color-navy);
+    background-color: var(--color-white);
 }
 
 .top-bar .actions .button:hover,
 .top-bar .actions .button:focus {
-    color: var(--white);
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: inset 0 0 0 2px var(--white);
+    color: var(--color-white);
+    background-color: var(--color-white-transulcent);
+    box-shadow: inset 0 0 0 2px var(--color-white);
 }
 
 .top-bar a {
-    color: var(--white);
+    color: var(--color-white);
     text-decoration: none;
 }
 
@@ -117,61 +203,65 @@ body {
 }
 
 .section {
-    scroll-margin-top: 80px;
-    padding: 80px 0;
+    scroll-margin-top: var(--dimension-nav-height);
+    padding: var(--spacing-large);
+    background-color: var(--color-white);
 }
 
 .section:nth-child(even) {
-    background-color: var(--pink);
+    background-color: var(--color-pink);
 }
 
 .section h1 {
     text-align: center;
-    font-family: 'Sacramento', cursive;
-    font-size: clamp(2rem, 1.0000rem + 5.3333vw, 4rem);
-    font-weight: 400;
-    padding: 0 4vw;
-    margin-bottom: 80px;
+    font-family: var(--font-family-cursive);
+    font-size: var(--font-size-heading-large);
+    font-weight: var(--font-weight-normal);
+    margin-bottom: var(--spacing-large);
 }
 
 .section h2 {
     text-align: center;
-    font-size: clamp(1rem, 0.5000rem + 2.6667vw, 2rem);
-    padding: 0 4vw;
-    margin-bottom: 20px;
+    font-size: var(--font-size-heading-medium);
+    margin-bottom: var(--spacing-small);
 }
 
 .section h3 {
     text-align: center;
-    font-size: clamp(0.5rem, 0.5000rem + 2.6667vw, 1rem);
-    padding: 0 4vw;
-    margin-bottom: 20px;
+    font-size: var(--font-size-heading-small);
+    margin-bottom: var(--spacing-small);
 }
 
 .section p {
-    margin-bottom: 20px;
-    padding: 0 8vw;
-    font-size: clamp(1rem, 0.8750rem + 0.6667vw, 1.25rem);
+    margin-bottom: var(--spacing-small);
+}
+
+.section p:last-child {
+    margin-bottom: 0;
 }
 
 #the-wedding {
     text-align: center;
 }
 
+#our-crew h1,
+#travel h1,
+#rsvp h1 {
+    margin-bottom: var(--spacing-medium);
+}
+
 .countdown-container {
-    background-color: var(--pink);
-    padding: 40px;
-    width: 92vw;
+    background-color: var(--color-pink);
+    padding: var(--spacing-medium);
     max-width: 600px;
-    margin: 0 auto 80px;
-    font-size: clamp(0.75rem, 0.5000rem + 1.3333vw, 1.25rem);
+    margin: 0 auto var(--spacing-large);
 }
 
 .countdown {
     display: flex;
     justify-content: center;
-    font-weight: 700;
-    margin-bottom: 40px;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-medium);
 }
 
 .countdown .segment {
@@ -180,37 +270,24 @@ body {
 }
 
 .countdown .segment .value {
-    font-size: clamp(1.5rem, 0.7500rem + 4.0000vw, 3rem);
-}
-
-.itinerary {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 2vw;
+    font-size: var(--font-size-heading-medium);
 }
 
 .itinerary .event {
-    flex: 1;
     text-align: center;
-    margin: 0 2vw;
-    font-size: clamp(1rem, 0.2500rem + 1.3333vw, 1.25rem);
-}
-
-.itinerary .event img {
-    width: 100%;
-    object-fit: cover;
-    aspect-ratio: 16/9;
-    margin-top: 8px;
 }
 
 .itinerary .event .name {
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
+}
+
+.itinerary .event .location {
+    margin-bottom: var(--spacing-tiny);
 }
 
 .timeline {
     position: relative;
-    max-width: 1200px;
+    max-width: var(--dimension-content-width);
     margin: 0 auto;
 }
 
@@ -220,7 +297,7 @@ body {
     left: 50%;
     width: 2px;
     height: 100%;
-    background: #c5c5c5;
+    background: var(--color-sage-light);
 }
 
 .timeline ul {
@@ -256,7 +333,7 @@ body {
 }
 
 .timeline .filler-1 {
-    height: 40px;
+    height: 80px;
 }
 
 .timeline .filler-2 {
@@ -268,7 +345,7 @@ body {
 }
 
 .timeline .filler-4 {
-    height: 160px;
+    height: 180px;
 }
 
 .timeline ul li:nth-child(odd) .content {
@@ -289,9 +366,9 @@ body {
     width: 10px;
     height: 10px;
     top: 50%;
-    background: var(--sage);
+    background: var(--color-sage);
     border-radius: 50%;
-    box-shadow: 0 0 0 3px var(--sage-light);
+    box-shadow: 0 0 0 3px var(--color-sage-light);
     transform: translateY(-50%);
 }
 
@@ -305,21 +382,19 @@ body {
 
 .timeline ul li .time {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     top: 50%;
     position: absolute;
     margin: 0;
     padding: 8px 16px;
-    background: var(--sage);
-    color: #fff;
+    background: var(--color-sage);
+    color: var(--color-white);
     border-radius: 18px;
-    box-shadow: 0 0 0 3px var(--sage-light);
+    box-shadow: 0 0 0 3px var(--color-sage-light);
 }
 
 .timeline ul li img {
-    width: 70%;
-    min-width: 100px;
-    max-width: 300px;
+    max-width: 400px;
 }
 
 .timeline ul li:nth-child(odd) .time {
@@ -343,80 +418,69 @@ body {
 .person-group {
     display: flex;
     justify-content: center;
-    margin: 0 2vw 80px;
+    max-width: var(--dimension-content-width);
+    margin: 0 auto var(--spacing-large);
+}
+
+.person-group:last-child {
+    margin-bottom: 0;
 }
 
 .person {
-    padding: 0 2vw;
+    padding: 0 var(--spacing-small);
     text-align: center;
-    width: 33%;
-    max-width: 400px;
-    font-size: clamp(1rem, 0.8750rem + 0.6667vw, 1.25rem);
+    width: 33.3333%;
 }
 
 .person img {
-    width: 100%;
-    margin: 0 auto 8px;
+    max-width: 360px;
+    margin: 0 auto var(--spacing-tiny);
     border-radius: 50%;
 }
 
 .person .name {
-    font-family: 'Sacramento', cursive;
-    font-size: clamp(1.5rem, 1.2500rem + 1.3333vw, 2rem);
+    font-family: var(--font-family-cursive);
+    font-size: var(--font-size-heading-medium);
 }
 
 .person .role {
-    font-size: clamp(1.25rem, 1.1250rem + 0.6667vw, 1.5rem);
-    font-weight: 700;
+    font-size: var(--font-size-heading-small);
+    font-weight: var(--font-weight-bold);
 }
 
-.person .character {
-    margin-top: 16px;
+.person .factoid {
+    margin-top: var(--spacing-small);
     font-style: italic;
 }
 
-#travel .row {
-    max-width: 1200px;
-    padding: 0 2vw;
-    margin: 0 auto 20px;
+.person .factoid .prompt {
+    font-weight: var(--font-weight-bold);
 }
 
-.hotel-accommodations {
-    display: flex;
+.hotel-accommodations,
+.theme-park-tickets,
+.disney-travel-agent {
+    --spacing-row-item: var(--spacing-small);
 }
 
-.hotel-accommodations .location, .hotel-accommodations .information {
-    flex: 1;
-    padding: 0 2vw;
+.location .address {
+    margin-top: var(--spacing-tiny);
+    font-size: var(--font-size-sub-content);
 }
 
-.hotel-accommodations .location .address {
-    margin-top: 20px;
+.travel-agent-info {
+    padding: var(--spacing-medium);
+    border: 3px solid var(--color-navy);
 }
 
-.hotel-accommodations .information {
-    font-size: 20px;
-}
-
-.other-hotel-recommendations {
-    display: flex;
-}
-
-.other-hotel-recommendations .location {
-    flex: 1;
-}
-
-.other-hotel-recommendations .location img {
-    width: 100%;
-    object-fit: cover;
-    aspect-ratio: 16/9;
+.travel-agent-info .name {
+    font-family: var(--font-family-cursive);
+    font-size: var(--font-size-heading-medium);
 }
 
 .faq {
-    padding: 0 120px;
-    margin-bottom: 40px;
-    font-size: clamp(1rem, 0.8750rem + 0.6667vw, 1.25rem);
-    text-align: center;
+    max-width: var(--dimension-content-width);
+    margin: 0 auto var(--spacing-medium);
 }
 
 .faq:last-child {
@@ -424,10 +488,54 @@ body {
 }
 
 .faq .question {
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-heading-small);
+    margin-bottom: var(--spacing-tiny);
 }
 
-@media only screen and (max-width: 900px) {
+#rsvp {
+    text-align: center;
+}
+
+#rsvp .button {
+    color: var(--color-white);
+    background-color: var(--color-navy);
+    margin-top: var(--spacing-medium);
+}
+
+#rsvp .button:hover,
+#rsvp .button:focus {
+    color: var(--color-navy);
+    background-color: var(--color-white);
+    box-shadow: inset 0 0 0 2px var(--color-navy);
+}
+
+@media only screen and (max-width: 960px) {
+    :root {
+        /* dimensions */
+        --dimension-content-width: 600px;
+
+        /* spacings */
+        --spacing-large: 8vw;
+        --spacing-medium: 6vw;
+        --spacing-small: 4vw;
+        --spacing-tiny: 2vw;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .row-item {
+        width: 100%;
+        margin: 0 0 var(--spacing-row);
+    }
+
+    .row-item:last-child {
+        margin-bottom: 0;
+    }
+
     .top-bar {
         padding-right: 0;
         height: auto;
@@ -440,7 +548,7 @@ body {
     }
 
     .top-bar .hamburger-line {
-        background: var(--white);
+        background: var(--color-white);
         display: block;
         height: 2px;
         position: relative;
@@ -449,7 +557,7 @@ body {
 
     .top-bar .hamburger-line::before,
     .top-bar .hamburger-line::after {
-        background: var(--white);
+        background: var(--color-white);
         content: '';
         display: block;
         height: 100%;
@@ -507,50 +615,6 @@ body {
         width: fit-content;
     }
 
-    .section {
-        padding: 8vw 0;
-    }
-
-    .section h1 {
-        margin-bottom: 8vw;
-    }
-
-    .section p {
-        margin-bottom: 8vw;
-        padding: 0 4vw;
-    }
-
-    .section p:last-child {
-        margin-bottom: 0;
-    }
-
-    .countdown-container {
-        padding: 8vw;
-        margin: 0 auto 8vw;
-    }
-
-    .countdown {
-        margin-bottom: 8vw;
-    }
-
-    .itinerary {
-        flex-direction: column;
-    }
-
-    .itinerary .event {
-        max-width: 600px;
-        margin-bottom: 8vw;
-        font-size: clamp(1rem, 0.8750rem + 0.6667vw, 1.25rem);
-    }
-
-    .itinerary .event:last-child {
-        margin-bottom: 0;
-    }
-
-    .timeline {
-        padding-bottom: 0;
-    }
-
     .timeline:before {
         left: 20px;
     }
@@ -559,8 +623,7 @@ body {
     .timeline ul li:nth-child(even) {
         width: 100%;
         text-align: left;
-        padding-left: 50px;
-        padding-bottom: 30px;
+        padding: 20px 0 30px 50px;
     }
 
     .timeline ul li:nth-child(odd):before,
@@ -604,17 +667,14 @@ body {
 
     .person-group {
         flex-direction: column;
-        margin-bottom: 8vw;
-    }
-
-    .person-group:last-child {
-        margin-bottom: 0;
+        max-width: var(--dimension-content-width);
+        margin: 0 auto var(--spacing-large);
     }
 
     .person {
         width: 100%;
-        max-width: 500px;
-        margin: 0 auto 8vw;
+        margin: 0 auto var(--spacing-large);
+        padding: 0;
     }
 
     .person:last-child {
@@ -623,14 +683,5 @@ body {
 
     .person img {
         width: 80%;
-    }
-
-    .person .character {
-        margin-top: 4vw;
-    }
-
-    .faq {
-        padding: 0 4vw;
-        margin-bottom: 8vw;
     }
 }
