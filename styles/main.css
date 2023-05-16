@@ -13,12 +13,12 @@
     --font-family-cursive: 'Sacramento', 'cursive';
 
     /* font sizes */
-    --font-size-heading-large: clamp(4rem, 3.5rem + 2.5vw, 5rem);
-    --font-size-heading-medium: clamp(1.5rem, 1rem + 2.5vw, 2.5rem);
-    --font-size-heading-small: clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem);
+    --font-size-heading-large: clamp(4rem, 1.6rem + 4vw, 5rem);
+    --font-size-heading-medium: clamp(1.75rem, -0.05rem + 3vw, 2.5rem);
+    --font-size-heading-small: clamp(1.25rem, 0.65rem + 1vw, 1.5rem);
 
-    --font-size-content: clamp(1rem, 0.875rem + 0.625vw, 1.25rem);
-    --font-size-sub-content: clamp(0.75rem, 0.625rem + 0.625vw, 1rem);
+    --font-size-content: clamp(1rem, 0.4rem + 1vw, 1.25rem);
+    --font-size-sub-content: clamp(0.75rem, 0.15rem + 1vw, 1rem);
 
     /* font weights */
     --font-weight-bold: 700;
@@ -245,12 +245,6 @@ img {
 .section h2 {
     text-align: center;
     font-size: var(--font-size-heading-medium);
-    margin-bottom: var(--spacing-small);
-}
-
-.section h3 {
-    text-align: center;
-    font-size: var(--font-size-heading-small);
     margin-bottom: var(--spacing-small);
 }
 
